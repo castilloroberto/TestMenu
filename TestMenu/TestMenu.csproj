@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\su_mueble_logo.png" />
+    <None Remove="su_mueble_logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\su_mueble_logo.png" />
+    <Resource Include="su_mueble_logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\Model\" />
+    <Folder Include="MVVM\ViewModel\" />
+    <Folder Include="MVVM\View\" />
+    <Folder Include="Theme\" />
+  </ItemGroup>
+
+</Project>
