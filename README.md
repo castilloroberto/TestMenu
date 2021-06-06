@@ -10,7 +10,11 @@
 
 ### Ventana Principal
 
+![2_mainWindow](https://user-images.githubusercontent.com/68355475/120943087-0d235b80-c6ea-11eb-961a-60815f9c4b79.png)
+
 ### Segunda Pagina
+
+![2_mainWindow_page2](https://user-images.githubusercontent.com/68355475/120943104-1ad8e100-c6ea-11eb-97ab-5ee7c5a78533.png)
 
 
 
