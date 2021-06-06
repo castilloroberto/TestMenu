@@ -4,14 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestMenu"
+        xmlns:viewModel="clr-namespace:TestMenu.MVVM.ViewModel"
         mc:Ignorable="d"
         FontFamily="fonts/#Dosis"
-        Title="MainWindow" MinHeight="600" MinWidth="920">
+        Title="Su Mueble" MinHeight="600" MinWidth="1100">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
+    
     <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
+      
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition/>
@@ -19,88 +22,73 @@
 
         <!--Menu parte superior-->
         <Grid  Grid.Row="0" Background="#F8F8F8">
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="660"/>
                 <ColumnDefinition/>
-            </Grid.ColumnDefinitions>   
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <!--marca o logo-->
+            
             <TextBlock HorizontalAlignment="Center" 
                        VerticalAlignment="Center" 
                        FontSize="35"
                        Foreground="#54a0ff"
                        FontWeight="Bold"
                        Text="Su Mueble"/>
-            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                
+            
+            <StackPanel Grid.Column="2"
+                        Orientation="Horizontal">
+                <RadioButton Content="Ventas"
+                             IsChecked="True"
+                             Command="{Binding VentasViewCommand}"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Height="35"
+                             FontSize="14"
+                             Width="100"/>
+                <RadioButton Content="Inventario"
+                             Command="{Binding ModernViewCommand}"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Height="35"
+                             FontSize="14"
+                             Width="100"/>
+
+                <RadioButton Content="Creditos"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Height="35"
+                             FontSize="14"
+                             Width="100"/>
+                <RadioButton Content="Historial"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Height="35"
+                             FontSize="14"
+                             Width="100"/>
+                <RadioButton Content="Devoluciones"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Height="35"
+                             FontSize="14"
+                             Width="100"/>
+                <RadioButton Content="Colaboradores"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Height="35"
+                             FontSize="14"
+                             Width="100"/>
             </StackPanel>
-          
-        </Grid>  
-        
+            <Button Grid.Column="4"
+                    Style="{StaticResource ButtonLogoutTheme}"
+                    Content="Cerrar Sesion" 
+                    Width="100" Height="35"/>
+
+        </Grid>
+
+
+        <ContentControl Content="{Binding CurrentView}" Grid.Row="1" Margin="10"/>
+
         <!--parte principal-->
-        <Grid Grid.Row="1" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="20"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="20"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Column="1" Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <StackPanel >
-                    <TextBlock 
-                        Text="N° Identidad Cliente:"
-                        FontWeight="Light"
-                        Margin="0,0,0,5"
-                        
-                        FontSize="25"/>
-                    <TextBox x:Name="txt_identidad"
-                             Width="180"
-                             HorizontalAlignment="Left"
-                             Margin="0,0,0,20"
-                             Height="20"/>
-
-                    <TextBlock 
-                        Text="Buscar Producto:"
-                        FontWeight="Light"
-                        Margin="0,0,0,5"
-                        FontSize="25"/>
-                    <TextBox x:Name="txt_search" 
-                             Width="180"
-                             Foreground="Gray"
-                             Text="Nombre o Codigo de Producto"
-                             HorizontalAlignment="Left"
-                             Height="20" GotFocus="txt_search_GotFocus" LostFocus="txt_search_LostFocus"/>
-
-                </StackPanel>
-
-                <StackPanel Grid.Column="1"
-                            Margin="50,0,0,0">
-                    <TextBlock 
-                        Text="Forma de Pago:"
-                        Margin="0,0,0,5"
-                        FontWeight="Light"
-                        FontSize="25"/>
-                    
-                    <ComboBox x:Name="cb_payment"
-                              HorizontalAlignment="Left"
-                              Width="180"
-                             Height="20">
-                        <ComboBoxItem Content="Al Contado"/>
-                        <ComboBoxItem Content="Al Credito"/>
-                    </ComboBox>
-
-
-                </StackPanel>
-            </Grid>
-        </Grid>    
+        
         
 
     

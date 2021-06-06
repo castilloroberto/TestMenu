@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TestMenu"
         mc:Ignorable="d"
         FontFamily="/fonts/#Dosis"
-        Title="Login" Height="450" Width="800">
+        Title="Su Mueble" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -32,10 +32,17 @@
                    Source="/su_mueble_logo.png"/>
 
             <StackPanel HorizontalAlignment="Center">
-                <TextBlock FontWeight="Medium" Text="Usuario:"/>
-                <TextBox x:Name="txt_user" Height="20" Width="150" Margin="0,0,0,20"/>
+                <TextBlock FontWeight="Medium" Text="Usuario:"
+                           HorizontalAlignment="Center"/>
+                <TextBox x:Name="txt_user" 
+                         Height="45" 
+                         Width="250"
+                         Style="{StaticResource TextBoxTheme}"
+                         Margin="0,0,0,20"/>
 
-                <TextBlock FontWeight="Medium" Text="Contraseña:"/>
+                <TextBlock FontWeight="Medium" 
+                           Text="Contraseña:"
+                           HorizontalAlignment="Center"/>
                 <PasswordBox x:Name="txt_password" Height="20" Width="150" Margin="0,0,0,20"/>
 
                 <Button Content="Entrar"

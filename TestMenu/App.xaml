@@ -2,8 +2,33 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TestMenu"
+             xmlns:viewModel="clr-namespace:TestMenu.MVVM.ViewModel"
+             xmlns:view="clr-namespace:TestMenu.MVVM.View"
              StartupUri="Login.xaml">
     <Application.Resources>
-         
+             <!--ojo aqui-->
+             <!--ojo aqui-->
+        <ResourceDictionary>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml" />
+                <ResourceDictionary Source="Theme/ButtonLogoutTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--para poder cambiar entres paginas-->
+            
+            <!--ventana de ventas-->
+            <DataTemplate DataType="{x:Type viewModel:VentasViewModel}">
+                <view:VentasView/>
+            </DataTemplate>
+
+            <!--ventana modernview--> 
+            <DataTemplate DataType="{x:Type viewModel:ModernViewModel}">
+                <view:ModernView/>
+            </DataTemplate>
+
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
